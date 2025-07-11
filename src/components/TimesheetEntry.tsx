@@ -43,7 +43,6 @@ export default function TimesheetEntry({ task, hours, project }: Props) {
           {project}
         </span>
         <div className="relative" ref={dropdownRef}>
-          {/* 3-dot button */}
           <button onClick={() => setShowDropdown((prev) => !prev)}>
             <SlOptions
               className="text-gray-400 hover:text-gray-600 cursor-pointer"
@@ -51,13 +50,12 @@ export default function TimesheetEntry({ task, hours, project }: Props) {
             />
           </button>
 
-          {/* Dropdown below the button */}
           {showDropdown && (
             <div className="absolute top-full right-0 mt-2 w-[97px] bg-white border border-gray-200 rounded-lg shadow-md z-10 flex flex-col gap-2">
-              <button className="w-full text-left px-4 py-2 font-normal text-sm hover:bg-gray-100 text-gray-700">
+              <button className="w-full text-left px-4 py-2 font-normal text-sm hover:bg-gray-100 text-gray-700 cursor-pointer">
                 Edit
               </button>
-              <button className="w-full text-left px-4 py-2 text-sm font-normal text-red-600 hover:bg-gray-100">
+              <button className="w-full text-left px-4 py-2 text-sm font-normal text-red-600 hover:bg-gray-100 cursor-pointer">
                 Delete
               </button>
             </div>

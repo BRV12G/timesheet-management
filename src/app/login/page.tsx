@@ -81,7 +81,7 @@ export default function LoginPage() {
           <input type="checkbox" className="w-4.5 h-4.5 border border-0.5 bg-gray-200 rounded  border-gray-300 appearance-none checked:bg-blue-600 checked:border-blue-600 " />
           <label className="text-gray-600">Remember me</label>
         </div>
-        <button className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm">
+        <button className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm cursor-pointer">
           Sign in
         </button>
                   {loginError && <p className="text-red-500 text-sm text-center">{loginError}</p>}

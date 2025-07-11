@@ -29,7 +29,7 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
           <div className="border-b border-gray-200 px-5 py-5 items-center">
             <button
               onClick={onClose}
-              className="absolute  right-4 text-gray-400 hover:text-gray-600 text-lg"
+              className="absolute  right-4 text-gray-400 hover:text-gray-600 text-lg cursor-pointer"
             >
               &times;
             </button>
@@ -130,7 +130,7 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                 <div className="flex items-center ">
                   <button
                     type="button"
-                    className="w-8 h-8 border-r border-l border-t border-b rounded-l  border-gray-300 text-2xl flex items-center justify-center text-gray-900 bg-gray-100"
+                    className="w-8 h-8 border-r border-l border-t border-b rounded-l  border-gray-300 text-2xl flex items-center justify-center text-gray-900 bg-gray-100 cursor-pointer"
                     onClick={() => setHours((prev) => Math.max(prev - 1, 0))}
                   >
                     -
@@ -143,7 +143,7 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                   />
                   <button
                     type="button"
-                    className="w-8 h-8 border-l border-r border-t border-b rounded-r  border-gray-300 text-2xl  flex items-center justify-center text-gray-600 bg-gray-100"
+                    className="w-8 h-8 border-l border-r border-t border-b rounded-r  border-gray-300 text-2xl  flex items-center justify-center text-gray-600 bg-gray-100 cursor-pointer"
                     onClick={() => setHours((prev) => prev + 1)}
                   >
                     +
@@ -155,14 +155,14 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
               <div className="flex justify-between items-center  pt-4 mt-4 gap-2">
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm hover:bg-blue-700 w-1/2"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm hover:bg-blue-700 w-1/2 cursor-pointer"
                 >
                   Add entry
                 </button>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="border border-gray-300 px-6 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100 w-1/2 font-medium"
+                  className="border border-gray-300 px-6 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100 w-1/2 font-medium cursor-pointer"
                 >
                   Cancel
                 </button>

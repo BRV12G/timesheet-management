@@ -44,7 +44,7 @@ function DaySection({ date, tasks }: { date: string; tasks: string[] }) {
       ))}
       <button
         onClick={handleAddTask}
-        className="w-full text-sm text-blue-600 hover:underline py-1 mt-2"
+        className="cursor-pointer w-full text-sm text-blue-600 hover:underline py-1 mt-2"
       >
         + Add new task
       </button>
@@ -63,7 +63,7 @@ function TaskCard({ title, onDelete }: { title: string; onDelete: () => void }) 
         <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Project Name</span>
       </div>
       <div className="relative">
-        <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-500 hover:text-black">
+        <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-500 hover:text-black ">
           <MoreHorizontal className="w-4 h-4" />
         </button>
         {menuOpen && (

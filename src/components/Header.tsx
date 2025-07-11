@@ -48,13 +48,13 @@ export default function Header() {
                   signOut({ callbackUrl: "/login" });
                   onClose();
                 }}
-                className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+                className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 cursor-pointer"
               >
                 Yes
               </button>
               <button
                 onClick={onClose}
-                className="px-4 py-2 border border-gray-300 bg-white text-gray-700 rounded-md hover:bg-gray-100"
+                className="px-4 py-2 border border-gray-300 bg-white text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer"
               >
                 No
               </button>
@@ -84,7 +84,7 @@ export default function Header() {
       <div className="relative">
         <button
           onClick={() => setOpen((prev) => !prev)}
-          className="text-md text-gray-500 hover:text-black focus:outline-none flex items-center gap-1 font-medium text-base"
+          className="text-md text-gray-500 hover:text-black focus:outline-none flex items-center gap-1 font-medium text-base cursor-pointer"
         >
           {name}{" "}
           <span className="text-md">
@@ -95,7 +95,7 @@ export default function Header() {
           <div className="absolute right-0 mt-2 w-28 bg-white  rounded-lg shadow-lg z-10">
             <button
               onClick={handleLogout}
-              className="w-full text-left px-4 py-2 text-sm hover:bg-blue-600 hover:text-white hover:rounded-lg text-gray-500 font-medium"
+              className="w-full text-left px-4 py-2 text-sm hover:bg-blue-600 hover:text-white hover:rounded-lg text-gray-500 font-medium cursor-pointer"
             >
               Logout
             </button>
