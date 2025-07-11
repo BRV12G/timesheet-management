@@ -56,3 +56,6 @@ npm install next-auth
 
 npm install react-icons
 
+npm install react-confirm-alert
+
+
