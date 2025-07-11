@@ -21,36 +21,49 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen">
-      <div className="w-1/2 flex flex-col justify-center items-center px-12">
-        <h2 className="text-2xl font-semibold mb-4">Welcome back</h2>
-        <form onSubmit={handleLogin} className="w-full space-y-4">
-          <input
-            className="border px-4 py-2 w-full rounded"
-            placeholder="name@example.com"
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className="border px-4 py-2 w-full rounded"
-            placeholder="Password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="bg-blue-600 text-white px-4 py-2 w-full rounded">
-            Sign in
-          </button>
-        </form>
-        <p className="mt-10 text-sm text-gray-500">© 2024 tentwenty</p>
-      </div>
-      <div className="w-1/2 bg-blue-600 text-white flex items-center px-20">
-        <div>
-          <h1 className="text-4xl font-bold mb-4">ticktock</h1>
-          <p>
-            Introducing ticktock, our cutting-edge timesheet web application designed to revolutionize how you manage employee work hours...
-          </p>
+      <div className="flex min-h-screen">
+    {/* Left Section - Login Form */}
+    <div className="w-1/2 flex flex-col justify-center items-start px-24">
+      <h2 className="text-2xl font-bold leading-tight mb-6  text-gray-900">Welcome back</h2> {/* mb-6 for spacing match */}
+      <form onSubmit={handleLogin} className="w-full space-y-4">
+        <div className="flex flex-col gap-2">
+        <label className="text-md font-medium text-gray-900 leading-[21px] ">Email</label> {/* Added label */}
+        <input
+          className="border border-gray-300 px-4 py-3 w-full  rounded-lg text-md text-gray-600 "
+          placeholder="name@example.com"
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
         </div>
+        <div className="flex flex-col gap-2">
+        <label className="text-md font-medium text-gray-900 leading-[21px]">Password</label> {/* Added label */}
+        <input
+          className="border border-gray-300 px-4 py-3 w-full  rounded-lg text-md  text-gray-500 "
+          placeholder="Password"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        </div>
+        <div className="flex items-center gap-2 text-md">
+          {/* Added Remember me checkbox */}
+          <input type="checkbox" className="w-4.5 h-4.5 border border-0.5 bg-gray-200 rounded  border-gray-300 appearance-none checked:bg-blue-600 checked:border-blue-600 " />
+          <label className="text-gray-600">Remember me</label>
+        </div>
+        <button className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm">
+          Sign in
+        </button>
+      </form>
+    </div>
+
+    {/* Right Section - Intro Text */}
+    <div className="w-1/2 bg-blue-600 text-white flex items-center px-30">
+      <div className="flex flex-col gap-4">
+        <h1 className="text-5xl font-semibold mb-4 leading-[60px]">ticktock</h1>
+        <p className="text-lg  text-gray-200 text-justify  ">
+          Introducing ticktock, our cutting-edge timesheet web application designed to revolutionize how you manage employee work hours. With ticktock, you can effortlessly track and monitor employee attendance and productivity from anywhere, anytime, using any internet-connected device.
+        </p> {/* Replaced ... with full paragraph */}
       </div>
     </div>
+  </div>
   );
 }
