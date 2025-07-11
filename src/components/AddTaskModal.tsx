@@ -13,6 +13,8 @@ type Props = {
 
 export default function AddTaskModal({ onClose, onAddEntry }: Props) {
   const [hours, setHours] = useState(12);
+  const [errors, setErrors] = useState<{ project?: string; type?: string; task?: string }>({});
+
 
   return (
     <>
@@ -48,7 +50,16 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                 const type = (form.type as HTMLSelectElement).value;
                 const task = (form.task as HTMLTextAreaElement).value;
 
-                if (!project || !type || !task) return;
+                // if (!project || !type || !task) return;
+               
+                const newErrors: typeof errors = {};
+                if (!project) newErrors.project = "Please select a project";
+                if (!type) newErrors.type = "Please select the type of work";
+                if (!task || task.length < 10)
+                  newErrors.task = "Task description should be at least 10 characters";
+
+                setErrors(newErrors);
+                if (Object.keys(newErrors).length > 0) return;
 
                 onAddEntry({
                   task,
@@ -82,8 +93,12 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                   <option value="project-b">Project B</option>
                   <option value="project-c">Project C</option>
                 </select>
+                {errors.project && (
+                  <p className="text-red-500 text-xs">{errors.project}</p>
+                )}
               </div>
-
+               
+               {/* type */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-1">
                   <label className="block text-sm font-medium text-gray-900">
@@ -104,6 +119,9 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                   <option>New Feature</option>
                   <option>Code Review</option>
                 </select>
+                {errors.type && (
+                  <p className="text-red-500 text-xs">{errors.type}</p>
+                )}
               </div>
 
               {/* Task Description */}
@@ -120,6 +138,9 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                 <p className="text-xs text-gray-400 mt-1">
                   A note for extra info
                 </p>
+                {errors.task && (
+                  <p className="text-red-500 text-xs">{errors.task}</p>
+                )}
               </div>
 
               {/* Hours Selector */}
