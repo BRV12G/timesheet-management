@@ -42,28 +42,235 @@ export const timesheets = [
   },
 ];
 
+// export const timesheetEntries = {
+//   "5": [
+//     {
+//       id: "entry-1",
+//       date: "Jan 21",
+//       task: "Homepage Development",
+//       hours: 4,
+//       project: "Project Name",
+//     },
+//     {
+//       id: "entry-2",
+//       date: "Jan 21",
+//       task: "Homepage Development",
+//       hours: 4,
+//       project: "Project Name",
+//     },
+//     {
+//       id: "entry-3",
+//       date: "Jan 22",
+//       task: "Homepage Development",
+//       hours: 4,
+//       project: "Project Name",
+//     },
+//   ],
+// };
+
+
+// export const timesheetEntries = {
+//   "1": {
+//     range: "01 - 07 January, 2024",
+//     entries: [
+//       {
+//         id: "entry-1",
+//         date: "Jan 01",
+//         task: "Project Planning",
+//         hours: 3,
+//         project: "Website Redesign",
+//       },
+//       {
+//         id: "entry-2",
+//         date: "Jan 03",
+//         task: "Wireframe Design",
+//         hours: 5,
+//         project: "Website Redesign",
+//       },
+//     ],
+//   },
+//   "2": {
+//     range: "08 - 14 January, 2024",
+//     entries: [
+//       {
+//         id: "entry-3",
+//         date: "Jan 08",
+//         task: "UI Development",
+//         hours: 6,
+//         project: "E-commerce Platform",
+//       },
+//       {
+//         id: "entry-4",
+//         date: "Jan 10",
+//         task: "Component Styling",
+//         hours: 4,
+//         project: "E-commerce Platform",
+//       },
+//     ],
+//   },
+//   "3": {
+//     range: "15 - 21 January, 2024",
+//     entries: [
+//       {
+//         id: "entry-5",
+//         date: "Jan 15",
+//         task: "API Integration",
+//         hours: 5,
+//         project: "CRM System",
+//       },
+//       {
+//         id: "entry-6",
+//         date: "Jan 17",
+//         task: "Testing and Debugging",
+//         hours: 3,
+//         project: "CRM System",
+//       },
+//     ],
+//   },
+//   "4": {
+//     range: "22 - 28 January, 2024",
+//     entries: [
+//       {
+//         id: "entry-7",
+//         date: "Jan 22",
+//         task: "Feature Enhancement",
+//         hours: 4,
+//         project: "Inventory Management",
+//       },
+//       {
+//         id: "entry-8",
+//         date: "Jan 25",
+//         task: "Code Review",
+//         hours: 2,
+//         project: "Inventory Management",
+//       },
+//     ],
+//   },
+//   "5": {
+//     range: "29 January - 04 February, 2024",
+//     entries: [
+//       {
+//         id: "entry-9",
+//         date: "Jan 29",
+//         task: "Homepage Development",
+//         hours: 4,
+//         project: "Project Name",
+//       },
+//       {
+//         id: "entry-10",
+//         date: "Jan 30",
+//         task: "Fix bugs",
+//         hours: 6,
+//         project: "Mobile App",
+//       },
+//     ],
+//   },
+// };
+
+
+
 export const timesheetEntries = {
-  "5": [
-    {
-      id: "entry-1",
-      date: "Jan 21",
-      task: "Homepage Development",
-      hours: 4,
-      project: "Project Name",
-    },
-    {
-      id: "entry-2",
-      date: "Jan 21",
-      task: "Homepage Development",
-      hours: 4,
-      project: "Project Name",
-    },
-    {
-      id: "entry-3",
-      date: "Jan 22",
-      task: "Homepage Development",
-      hours: 4,
-      project: "Project Name",
-    },
-  ],
+  "1": {
+    range: "01 - 07 January, 2024",
+    days: ["Jan 01", "Jan 02", "Jan 03", "Jan 04", "Jan 05"],
+    entries: [
+      {
+        id: "entry-1",
+        date: "Jan 01",
+        task: "Project Planning",
+        hours: 3,
+        project: "Website Redesign",
+      },
+      {
+        id: "entry-2",
+        date: "Jan 03",
+        task: "Wireframe Design",
+        hours: 5,
+        project: "Website Redesign",
+      },
+    ],
+  },
+  "2": {
+    range: "08 - 14 January, 2024",
+    days: ["Jan 08", "Jan 09", "Jan 10", "Jan 11", "Jan 12"],
+    entries: [
+      {
+        id: "entry-3",
+        date: "Jan 08",
+        task: "UI Development",
+        hours: 6,
+        project: "E-commerce Platform",
+      },
+      {
+        id: "entry-4",
+        date: "Jan 10",
+        task: "Component Styling",
+        hours: 4,
+        project: "E-commerce Platform",
+      },
+    ],
+  },
+  "3": {
+    range: "15 - 21 January, 2024",
+    days: ["Jan 15", "Jan 16", "Jan 17", "Jan 18", "Jan 19"],
+    entries: [
+      {
+        id: "entry-5",
+        date: "Jan 15",
+        task: "API Integration",
+        hours: 5,
+        project: "CRM System",
+      },
+      {
+        id: "entry-6",
+        date: "Jan 17",
+        task: "Testing and Debugging",
+        hours: 3,
+        project: "CRM System",
+      },
+    ],
+  },
+  "4": {
+    range: "22 - 28 January, 2024",
+    days: ["Jan 22", "Jan 23", "Jan 24", "Jan 25", "Jan 26"],
+    entries: [
+      {
+        id: "entry-7",
+        date: "Jan 23",
+        task: "Feature Enhancement",
+        hours: 4,
+        project: "Inventory Management",
+      },
+      {
+        id: "entry-8",
+        date: "Jan 25",
+        task: "Code Review",
+        hours: 2,
+        project: "Inventory Management",
+      },
+    ],
+  },
+  "5": {
+    range: "29 January - 04 February, 2024",
+    days: ["Jan 29", "Jan 30", "Jan 31", "Feb 01", "Feb 02"],
+    entries: [
+      {
+        id: "entry-9",
+        date: "Jan 29",
+        task: "Homepage Development",
+        hours: 4,
+        project: "Project Name",
+      },
+      {
+        id: "entry-10",
+        date: "Jan 30",
+        task: "Fix bugs",
+        hours: 6,
+        project: "Mobile App",
+      },
+    ],
+  },
 };
+
+
+
