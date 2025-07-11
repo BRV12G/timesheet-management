@@ -104,6 +104,7 @@ import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FaPlus } from "react-icons/fa6";
+import AddTaskModal from "@/components/AddTaskModal";
 
 
 type Params = { params: { weekId: string } };
@@ -114,6 +115,25 @@ export default function TimesheetWeekPage({ params }: Params) {
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<string>("");
   const [days, setDays] = useState<string[]>([]);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddEntry = (newEntry: {
+  task: string;
+  hours: number;
+  project: string;
+  type: string;
+}) => {
+  const today = days[0]; // default: assign to first day — or customize
+
+  setEntries((prev) => [
+    ...prev,
+    {
+      ...newEntry,
+      date: today,
+      id: Date.now(), // temp ID
+    },
+  ]);
+};
 
   useEffect(() => {
     const fetchEntries = async () => {
@@ -208,7 +228,7 @@ export default function TimesheetWeekPage({ params }: Params) {
                       project={e.project}
                     />
                   ))}
-                <button className="text-sm text-gray-500 hover:bg-blue-100 px-3 py-2 border border-dotted cursor-pointer hover:border-blue-700 border-gray-300 rounded-md hover:text-blue-700  text-center flex items-center justify-center gap-1  transition-colors">
+                <button onClick={() => setShowModal(true)} className="text-sm text-gray-500 hover:bg-blue-100 px-3 py-2 border border-dotted cursor-pointer hover:border-blue-700 border-gray-300 rounded-md hover:text-blue-700  text-center flex items-center justify-center gap-1  transition-colors">
                   <FaPlus size={10} /> <span className="ml-1 ">Add new task</span>
                 </button>
               </div>
@@ -217,6 +237,7 @@ export default function TimesheetWeekPage({ params }: Params) {
         </div>
       </main>
       <Footer />
+      {showModal && <AddTaskModal onClose={() => setShowModal(false)} onAddEntry={handleAddEntry} />}
     </div>
   );
 }
