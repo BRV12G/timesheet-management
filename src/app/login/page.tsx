@@ -7,10 +7,38 @@ import { useState } from "react";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [loginError, setLoginError] = useState(""); 
   const router = useRouter();
+
+  const validateForm = () => {
+    const newErrors: { email?: string; password?: string } = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    //  Email validation
+    if (!email) newErrors.email = "Email is required";
+    else if (!emailRegex.test(email)) newErrors.email = "Invalid email format";
+
+
+
+    // Password validation
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{6,}$/;
+
+    if (!password) newErrors.password = "Password is required";
+    else if (!passwordRegex.test(password)) {
+      newErrors.password =
+        "Password must be at least 6 characters long and contain at least one uppercase letter, one digit, and one special character.";
+    }
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+        setLoginError(""); // reset login error
+
+    if (!validateForm()) return; // validate form
     const res = await signIn("credentials", {
       redirect: false,
       email,
@@ -34,6 +62,8 @@ export default function LoginPage() {
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
+                    {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+
         </div>
         <div className="flex flex-col gap-2">
         <label className="text-md font-medium text-gray-900 leading-[21px]">Password</label> {/* Added label */}
@@ -43,6 +73,8 @@ export default function LoginPage() {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
+                    {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+
         </div>
         <div className="flex items-center gap-2 text-md">
           {/* Added Remember me checkbox */}
@@ -52,6 +84,8 @@ export default function LoginPage() {
         <button className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm">
           Sign in
         </button>
+                  {loginError && <p className="text-red-500 text-sm text-center">{loginError}</p>}
+
       </form>
     </div>
 
