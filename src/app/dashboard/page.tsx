@@ -3,7 +3,7 @@ import { timesheets } from "@/lib/data";
 import { useEffect, useState } from "react";
 import TimesheetTable from "@/components/TimesheetTable";
 import Header from "@/components/Header";
-
+import Footer from "@/components/Footer";
 
 // export default function DashboardPage() {
 //   return (
@@ -56,11 +56,10 @@ import Header from "@/components/Header";
 //   );
 // }
 
-
 // import { timesheets } from "@/lib/data";
 
 // import { timesheets } from "@/lib/data";
-// 
+//
 const validTimesheets = timesheets.map((ts) => {
   return {
     ...ts,
@@ -69,9 +68,9 @@ const validTimesheets = timesheets.map((ts) => {
 });
 
 export default function DashboardPage() {
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchTimesheets = async () => {
       const res = await fetch("/api/timesheets");
       const json = await res.json();
@@ -81,15 +80,12 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div>
-     <Header />
-    <main className="min-h-screen bg-gray-50 p-10">
-             
-
-       
- 
-      <TimesheetTable timesheets={data} />
-    </main>
+    <div className=" bg-gray-50 ">
+      <Header />
+      <main className="pt-10 px-48 pb-60">
+        <TimesheetTable timesheets={data} />
+        <Footer />
+      </main>
     </div>
   );
 }
