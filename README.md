@@ -58,4 +58,5 @@ npm install react-icons
 
 npm install react-confirm-alert
 
+npm install @headlessui/react
 
