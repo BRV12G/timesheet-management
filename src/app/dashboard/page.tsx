@@ -1,8 +1,8 @@
 "use client";
 import { timesheets } from "@/lib/data";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import TimesheetTable from "@/components/TimesheetTable";
+import Header from "@/components/Header";
 
 
 // export default function DashboardPage() {
@@ -79,11 +79,17 @@ export default function DashboardPage() {
     };
     fetchTimesheets();
   }, []);
-  
+
   return (
-    <main className="p-10">
-      <h2 className="text-2xl font-semibold mb-6">Your Timesheets</h2>
+    <div>
+     <Header />
+    <main className="min-h-screen bg-gray-50 p-10">
+             
+
+       
+ 
       <TimesheetTable timesheets={data} />
     </main>
+    </div>
   );
 }

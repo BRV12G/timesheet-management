@@ -5,7 +5,7 @@ export const users = [
     id: "1",
     email: "name@example.com",
     password: "password123", // dummy password
-    name: "John Doe",
+    name: "bhairavi Doe",
   },
 ];
 

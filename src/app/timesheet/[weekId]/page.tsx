@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import TimesheetEntry from "@/components/TimesheetEntry";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Header from "@/components/Header";
 
 type Params = { params: { weekId: string } };
 
@@ -39,7 +40,9 @@ export default function TimesheetWeekPage({ params }: Params) {
    if (loading) return <p className="p-10">Loading...</p>;
   if (!entries.length) return <p className="p-10">No entries found.</p>;
   return (
-    <main className="p-10">
+    <main className="">
+          <Header />
+
       <h2 className="text-xl font-bold mb-2">This week&#39;s timesheet</h2>
       <p className="text-sm text-gray-600 mb-4">{range}</p>
 
