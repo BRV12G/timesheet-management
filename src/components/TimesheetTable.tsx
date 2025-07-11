@@ -47,7 +47,7 @@ export default function TimesheetTable({ timesheets }: Props) {
           <th className="p-4 w-[107px]">Week #</th>
           <th className="p-4 w-[502px]">Date</th>
           <th className="p-4 w-[502px]">Status</th>
-          <th className="p-4 w-[121px]">Actions</th>
+          <th className="p-4 w-[121px] ">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -63,7 +63,7 @@ export default function TimesheetTable({ timesheets }: Props) {
             <td className="p-4">
               <Link
                 href={`/timesheet/${ts.week}`}
-                className="text-blue-600 "
+                className="text-blue-600 hover:underline"
               >
                 {getActionText(ts.status)}
               </Link>
