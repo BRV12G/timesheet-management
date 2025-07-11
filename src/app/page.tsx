@@ -15,5 +15,5 @@ export default function HomePage() {
     else router.push("/login");
   }, [session, status, router]);
 
-  return null; // or loading spinner
+  return null; 
 }

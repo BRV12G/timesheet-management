@@ -1,26 +1,5 @@
-// components/TimesheetEntry.tsx
-
-// type Props = {
-//   task: string;
-//   hours: number;
-//   project: string;
-// };
-
-// export default function TimesheetEntry({ task, hours, project }: Props) {
-//   return (
-//     <div className="p-4 border rounded flex  items-center mb-2 bg-gray-50 hover:bg-gray-100 w-full">
-//       <p>{task}</p>
-//       <div className="ml-auto flex flex-row items-end">
-//         <p className="text-sm text-gray-500">{hours} hrs</p>
-//         <div className="text-sm text-blue-600">{project}</div>
-//       </div>
-//     </div>
-//   );
-// }
-
 import { SlOptions } from "react-icons/sl";
 import { useState, useRef, useEffect } from "react";
-
 
 type Props = {
   // day: string;
@@ -30,13 +9,15 @@ type Props = {
 };
 
 export default function TimesheetEntry({ task, hours, project }: Props) {
-
-    const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setShowDropdown(false);
       }
     }
@@ -61,7 +42,7 @@ export default function TimesheetEntry({ task, hours, project }: Props) {
         <span className="text-xs text-blue-600 py-0.5 px-2.5 font-medium bg-blue-100 rounded-md">
           {project}
         </span>
-          <div className="relative" ref={dropdownRef}>
+        <div className="relative" ref={dropdownRef}>
           {/* 3-dot button */}
           <button onClick={() => setShowDropdown((prev) => !prev)}>
             <SlOptions
@@ -82,8 +63,6 @@ export default function TimesheetEntry({ task, hours, project }: Props) {
             </div>
           )}
         </div>
-        
-
       </div>
     </div>
   );

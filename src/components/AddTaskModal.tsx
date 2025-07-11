@@ -1,4 +1,3 @@
-// components/AddTaskModal.tsx
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 
@@ -40,28 +39,28 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
             </h2>
           </div>
           <div className="p-5">
-            <form onSubmit={(e) => {
-    e.preventDefault();
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
 
-    const form = e.target as HTMLFormElement;
-    const project = (form.project as HTMLSelectElement).value;
-    const type = (form.type as HTMLSelectElement).value;
-    const task = (form.task as HTMLTextAreaElement).value;
+                const form = e.target as HTMLFormElement;
+                const project = (form.project as HTMLSelectElement).value;
+                const type = (form.type as HTMLSelectElement).value;
+                const task = (form.task as HTMLTextAreaElement).value;
 
-    if (!project || !type || !task) return;
+                if (!project || !type || !task) return;
 
-    onAddEntry({
-      task,
-      hours,
-      project,
-      type,
-    });
+                onAddEntry({
+                  task,
+                  hours,
+                  project,
+                  type,
+                });
 
-    onClose(); // close modal
-  }} className="space-y-4">
-
-
-
+                onClose();
+              }}
+              className="space-y-4"
+            >
               {/* Project */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-1">
@@ -71,7 +70,8 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                   <FaInfoCircle className="text-gray-400 mt-[2px]" size={14} />
                 </div>
 
-                <select name="project"
+                <select
+                  name="project"
                   className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 text-sm font-normal leading-tight text-gray-500 bg-white"
                   defaultValue=""
                 >
@@ -84,36 +84,35 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                 </select>
               </div>
 
-
               <div className="flex flex-col gap-2">
-  <div className="flex items-center gap-1">
-    <label className="block text-sm font-medium text-gray-900">
-      Type of Work <span className="text-gray-900">*</span>
-    </label>
-    <FaInfoCircle className="text-gray-400 mt-[2px]" size={14} />
-  </div>
+                <div className="flex items-center gap-1">
+                  <label className="block text-sm font-medium text-gray-900">
+                    Type of Work <span className="text-gray-900">*</span>
+                  </label>
+                  <FaInfoCircle className="text-gray-400 mt-[2px]" size={14} />
+                </div>
 
-  <select name="type"
-  className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 text-sm font-normal leading-tight text-gray-500 bg-white"
-  defaultValue=""
->
-  <option value="" disabled className="text-gray-400">
-    Select Type of work
-  </option>
-  <option>Bug fixes</option>
+                <select
+                  name="type"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 text-sm font-normal leading-tight text-gray-500 bg-white"
+                  defaultValue=""
+                >
+                  <option value="" disabled className="text-gray-400">
+                    Select Type of work
+                  </option>
+                  <option>Bug fixes</option>
                   <option>New Feature</option>
                   <option>Code Review</option>
-</select>
-</div>
-
-             
+                </select>
+              </div>
 
               {/* Task Description */}
               <div>
                 <label className="block text-sm font-medium text-gray-900">
                   Task description <span className="text-gray-900">*</span>
                 </label>
-                <textarea name="task"
+                <textarea
+                  name="task"
                   rows={4}
                   className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 text-sm"
                   placeholder="Write text here ..."
@@ -153,7 +152,7 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
               </div>
 
               {/* Footer Buttons */}
-              <div className="flex justify-between items-center border-t pt-4 mt-4 gap-2">
+              <div className="flex justify-between items-center  pt-4 mt-4 gap-2">
                 <button
                   type="submit"
                   className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm hover:bg-blue-700 w-1/2"

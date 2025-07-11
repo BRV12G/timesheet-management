@@ -1,4 +1,3 @@
-// components/TimesheetTable.tsx
 import Link from "next/link";
 
 type Timesheet = {
