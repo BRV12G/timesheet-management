@@ -182,6 +182,13 @@ export const timesheetEntries = {
         project: "Website Redesign",
       },
       {
+      id: "entry-1b",
+      date: "Jan 01",
+      task: "Client Meeting",
+      hours: 2,
+      project: "gencom",
+    },
+      {
         id: "entry-2",
         date: "Jan 03",
         task: "Wireframe Design",
