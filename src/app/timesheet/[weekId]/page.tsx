@@ -60,9 +60,9 @@ export default function TimesheetWeekPage({ params }: Params) {
   if (!entries.length) return <p className="p-10">No entries found.</p>;
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 ">
       <Header />
-      <main className="p-6 md:px-20">
+      <main className="pt-5 px-40 pb-60 ">
         <div className="bg-white p-6 rounded-lg shadow-md">
           {/* <div className="flex justify-between items-center mb-2">
             <h2 className="text-2xl font-bold">This week&#39;s timesheet</h2>
@@ -138,8 +138,9 @@ export default function TimesheetWeekPage({ params }: Params) {
             </div>
           ))}
         </div>
+        <Footer />
       </main>
-      <Footer />
+      
       {showModal && <AddTaskModal onClose={() => setShowModal(false)} onAddEntry={handleAddEntry} />}
     </div>
   );
