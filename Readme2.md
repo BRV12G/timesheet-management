@@ -18,7 +18,7 @@ A small SaaS-style timesheet web app built using **Next.js 15**, **NextAuth**, a
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### 1. Clone the project
 
@@ -67,48 +67,6 @@ Note: Password must conatain atleast 6 letters, 1 number, 1 caapital letter and 
 
 ---
 
-##  Folder Structure
-
-timesheet-management/
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── auth/
-│   │   │   │   └── [...nextauth]/
-│   │   │   │       └── route.ts
-│   │   │   └── timesheets/
-│   │   │       ├── route.ts
-│   │   │       └── [weekId]/
-│   │   │           └── route.ts
-│   │   ├── dashboard/
-│   │   │   └── page.tsx
-│   │   ├── login/
-│   │   │   └── page.tsx
-│   │   ├── timesheet/
-│   │   │   ├
-│   │   │   └── [weekId]/
-│   │   │       └── page.tsx
-│   │   ├── test/
-│   │   │   └── page.tsx
-│   │   ├── favicon.ico
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── components/
-│   │   ├── AddTaskModal.tsx
-│   │   ├── AuthProvider.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Header.tsx
-│   │   ├── TimesheetEntry.tsx
-│   │   └── TimesheetTable.tsx
-│   └── lib/
-│       ├── auth.ts
-│       └── data.ts
-├── .gitignore
-└── eslint.config.mjs
-
----
-
 ##  Assumptions & Notes
 
 - Dummy login is used via NextAuth credentials provider
@@ -126,11 +84,11 @@ timesheet-management/
 - **30–45 minutes**: Form validation and code formatting  
 - **15–20 minutes**: Deployment on Vercel  
 - **20–30 minutes**: README documentation and polishing  
-- ** Total Time Spent**: ~9 to 12 hours
+- **Total Time Spent**: ~9 to 12 hours
 
 ---
 
 ##  Author
 
-Made by Bhairavi Gawas  
+Bhairavi Gawas  
 For educational and evaluation purposes only
