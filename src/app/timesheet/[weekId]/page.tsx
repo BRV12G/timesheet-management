@@ -63,7 +63,7 @@ export default function TimesheetWeekPage() {
   const progressPercent = Math.min((totalHours / maxHours) * 100, 100);
 
   if (loading) return <p className="p-10">Loading...</p>;
-  if (!entries.length) return <p className="p-10">No entries found.</p>;
+//   if (!entries.length) return <p className="p-10">No entries found.</p>;
 
   return (
     <div className="bg-gray-50 ">
