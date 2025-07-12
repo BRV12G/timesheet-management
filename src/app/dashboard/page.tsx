@@ -17,9 +17,9 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className=" bg-gray-50 ">
+    <div className=" bg-gray-50 min-h-screen">
       <Header />
-      <main className="pt-10 px-48 pb-60">
+      <main className="pt-10 px-4 sm:px-6 md:px-10 lg:px-24 xl:px-48 pb-20">
         <TimesheetTable timesheets={data} />
         <Footer />
       </main>

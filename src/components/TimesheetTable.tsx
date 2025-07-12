@@ -37,15 +37,15 @@ const getActionText = (status: string) => {
 
 export default function TimesheetTable({ timesheets }: Props) {
   return (
-    <div className="bg-white  p-6 rounded-lg shadow-md">
+    <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md overflow-x-auto">
       <h3 className="text-2xl font-bold mb-4">Your Timesheets</h3>
-      <table className="w-full table-auto border border-gray-200 ">
+      <table className="w-full min-w-full table-auto border border-gray-200 ">
         <thead>
           <tr className="bg-gray-50 text-left p-4 text-gray-500">
-            <th className="p-4 w-[107px]">Week #</th>
-            <th className="p-4 w-[502px]">Date</th>
-            <th className="p-4 w-[502px]">Status</th>
-            <th className="p-4 w-[121px] ">Actions</th>
+            <th className="p-2 sm:p-4 min-w-[80px]">Week #</th>
+            <th className="p-2 sm:p-4 min-w-[160px]">Date</th>
+            <th className="p-2 sm:p-4 min-w-[160px]">Status</th>
+            <th className="p-2 sm:p-4 min-w-[100px] ">Actions</th>
           </tr>
         </thead>
         <tbody>
