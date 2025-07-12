@@ -15,15 +15,18 @@
 // }
 
 // app/api/timesheets/[weekId]/route.ts
+// src/app/api/timesheets/[weekId]/route.ts
 import { timesheetEntries } from "@/lib/data";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
+// Correct function signature: 2nd argument is typed as RouteHandlerContext
 export async function GET(
   req: NextRequest,
-  { params }: { params: { weekId: string } }
+  context: { params: { weekId: string } }
 ) {
-  const weekData = timesheetEntries[params.weekId];
+  const { weekId } = context.params;
+
+  const weekData = timesheetEntries[weekId];
   if (!weekData) {
     return new NextResponse("Timesheet not found", { status: 404 });
   }
