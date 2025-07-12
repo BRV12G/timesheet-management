@@ -7,6 +7,13 @@ export const users = [
     password: "Gawas304@", // dummy password
     name: "bhairavi Doe",
   },
+  {
+    id: "2",
+    email: "bhairavi@example.com ",
+    password: "Hello@123g", // dummy password
+    name: "Bhairavi Gawas",
+   
+  }
 ];
 
 export const timesheets = [
