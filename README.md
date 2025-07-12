@@ -14,6 +14,7 @@ A small SaaS-style timesheet web app built using **Next.js 15**, **NextAuth**, a
 - Fully responsive UI
 - Reusable and scalable component structure Header Footer
 -Form validation and error handling for the creation form
+- Logout Functionality
 
 
 ---
