@@ -15,9 +15,9 @@ interface Entry {
   date: string;
   id: number;
 }
-type Params = { params: { weekId: string } };
+// type Params = { params: { weekId: string } };
 
-export default function TimesheetWeekPage({}: Params) {
+export default function TimesheetWeekPage() {
   const { weekId } = useParams();
   //   const [entries, setEntries] = useState<any[]>([]);
   const [entries, setEntries] = useState<Entry[]>([]);
