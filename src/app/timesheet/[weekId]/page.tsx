@@ -27,6 +27,7 @@ export default function TimesheetWeekPage() {
   const [range, setRange] = useState<string>("");
   const [days, setDays] = useState<string[]>([]);
   const [showModal, setShowModal] = useState(false);
+  
 
   const handleAddEntry = (newEntry: {
     task: string;
