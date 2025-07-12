@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FaPlus } from "react-icons/fa6";
 import AddTaskModal from "@/components/AddTaskModal";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 interface Entry {
   task: string;
@@ -53,7 +55,9 @@ export default function TimesheetWeekPage() {
         setRange(json.range || "");
         setDays(json.days || []);
       }
-      setLoading(false);
+      setTimeout(() => {
+  setLoading(false);
+}, 2000);
     };
     fetchEntries();
   }, [weekId]);
@@ -62,8 +66,20 @@ export default function TimesheetWeekPage() {
   const maxHours = 40;
   const progressPercent = Math.min((totalHours / maxHours) * 100, 100);
 
-  if (loading) return <p className="p-10">Loading...</p>;
+//   if (loading) return <p className="p-10">Loading...</p>;
 //   if (!entries.length) return <p className="p-10">No entries found.</p>;
+if (loading)
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="flex flex-col items-center justify-center p-8 bg-white rounded-xl shadow-lg">
+        <ClipLoader size={50} color="#2563eb" /> {/* Tailwind blue-600 */}
+        <p className="mt-4 text-gray-600 text-sm animate-pulse">
+          Fetching {range} timesheet...
+        </p>
+      </div>
+    </div>
+  );
+
 
   return (
     <div className="bg-gray-50 ">
