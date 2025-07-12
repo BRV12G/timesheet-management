@@ -46,16 +46,16 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full h-[68px] flex items-center justify-between px-4  bg-white shadow-lg">
+    <header className="w-full h-[68px] flex items-center justify-between px-4 sm:px-6 md:px-8 bg-white shadow-lg">
       {/* Left side */}
-      <div className="flex items-center gap-12">
+      <div className="flex items-center gap-6 sm:gap-10">
         <Link
           href="/dashboard"
-          className="flex items-center gap-3 w-auto h-[36px]"
+          className="flex items-center gap-2 sm:gap-3  w-auto h-[36px]"
         >
           <span className="text-2xl font-bold text-gray-900">ticktock</span>
         </Link>
-        <span className="text-sm font-medium text-gray-900 font-inter">
+        <span className="text-sm font-medium text-gray-900 hidden md:inline-block ">
           Timesheets
         </span>
       </div>
@@ -66,7 +66,7 @@ export default function Header() {
           onClick={() => setOpen((prev) => !prev)}
           className="text-md text-gray-500 hover:text-black focus:outline-none flex items-center gap-1 font-medium text-base cursor-pointer"
         >
-          {name}{" "}
+           <span className="max-w-[100px] truncate">{name}</span>
           <span className="text-md">
             <RiArrowDropDownLine size={24} />
           </span>
