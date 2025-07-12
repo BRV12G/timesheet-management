@@ -7,21 +7,21 @@ import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import ClipLoader from "react-spinners/ClipLoader";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-
+import "react-toastify/dist/ReactToastify.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{ email?: string; password?: string }>(
     {}
-  );
-  const [loginError, setLoginError] = useState("");
+  ); // stores validation errors
+  const [loginError, setLoginError] = useState(""); //track the login errors
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // 👈 Add loading state
- 
+
   const router = useRouter();
 
+  //signin form validation
   const validateForm = () => {
     const newErrors: { email?: string; password?: string } = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,12 +44,15 @@ export default function LoginPage() {
     return Object.keys(newErrors).length === 0;
   };
 
+  //login function, authenticates user using nextauth
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoginError(""); // reset login error
+    setLoginError("");
 
-    if (!validateForm()) return; // validate form
+    if (!validateForm()) return;
     setIsLoading(true);
+
+    // Attempt sign in using next-auth credentials provider
     const res = await signIn("credentials", {
       redirect: false,
       email,
@@ -57,11 +60,10 @@ export default function LoginPage() {
     });
     setIsLoading(false);
     if (res?.ok) {
-        toast.success("Successfully signed in!");
+      toast.success("Successfully signed in!");
 
-        router.push("/dashboard");
-    }
-    else toast.error("Invalid email or password.");
+      router.push("/dashboard");
+    } else toast.error("Invalid email or password.");
   };
 
   return (
@@ -90,7 +92,7 @@ export default function LoginPage() {
             <label className="text-md font-medium text-gray-900 leading-[21px]">
               Password
             </label>
-           <div className="relative">
+            <div className="relative">
               <input
                 className="border border-gray-300 px-4 py-3 w-full rounded-lg text-md text-gray-500 pr-12"
                 placeholder="Password"
@@ -115,12 +117,11 @@ export default function LoginPage() {
             />
             <label className="text-gray-600">Remember me</label>
           </div>
-          <button className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm cursor-pointer " disabled={isLoading}>
-            {isLoading ? (
-    <ClipLoader size={20} color="#ffffff" /> 
-  ) : (
-    "Sign in"
-  )}
+          <button
+            className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm cursor-pointer "
+            disabled={isLoading}
+          >
+            {isLoading ? <ClipLoader size={20} color="#ffffff" /> : "Sign in"}
           </button>
           {loginError && (
             <p className="text-red-500 text-sm text-center">{loginError}</p>
@@ -144,15 +145,15 @@ export default function LoginPage() {
         </div>
       </div>
       <ToastContainer
-      position="top-center"
-      autoClose={20000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      pauseOnHover
-      draggable
-      theme="colored"
-    />
+        position="top-center"
+        autoClose={20000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
     </div>
   );
 }

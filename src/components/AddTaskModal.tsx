@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 
-
-
 type Props = {
   onClose: () => void;
   onAddEntry: (entry: {
@@ -15,8 +13,11 @@ type Props = {
 
 export default function AddTaskModal({ onClose, onAddEntry }: Props) {
   const [hours, setHours] = useState(12);
-  const [errors, setErrors] = useState<{ project?: string; type?: string; task?: string }>({});
-
+  const [errors, setErrors] = useState<{
+    project?: string;
+    type?: string;
+    task?: string;
+  }>({});
 
   return (
     <>
@@ -51,12 +52,12 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                 const type = (form.type as HTMLSelectElement).value;
                 const task = (form.task as HTMLTextAreaElement).value;
 
-               
                 const newErrors: typeof errors = {};
                 if (!project) newErrors.project = "Please select a project";
                 if (!type) newErrors.type = "Please select the type of work";
                 if (!task || task.length < 10)
-                  newErrors.task = "Task description should be at least 10 characters";
+                  newErrors.task =
+                    "Task description should be at least 10 characters";
 
                 setErrors(newErrors);
                 if (Object.keys(newErrors).length > 0) return;
@@ -97,8 +98,8 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                   <p className="text-red-500 text-xs">{errors.project}</p>
                 )}
               </div>
-               
-               {/* type */}
+
+              {/* type */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-1">
                   <label className="block text-sm font-medium text-gray-900">

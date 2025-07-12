@@ -1,4 +1,3 @@
-// timesheet-management/src/components/TaskModal.tsx
 import { useState, useEffect } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 
@@ -12,8 +11,8 @@ type TaskEntry = {
 type Props = {
   onClose: () => void;
   onSubmit: (entry: TaskEntry) => void;
-  initialData?: TaskEntry; // <-- Added
-  isEditing?: boolean; // <-- Added
+  initialData?: TaskEntry; 
+  isEditing?: boolean; 
 };
 
 export default function EditModal({

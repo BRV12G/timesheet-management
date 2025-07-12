@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 export default function DashboardPage() {
   const [data, setData] = useState([]);
 
+  // Fetch all timesheets when the dashboard mounts
   useEffect(() => {
     const fetchTimesheets = async () => {
       const res = await fetch("/api/timesheets");

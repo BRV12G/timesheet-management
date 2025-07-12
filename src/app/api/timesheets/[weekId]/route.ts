@@ -20,7 +20,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  context: { params: Promise<{ weekId: string }> } // <-- note the promise
+  context: { params: Promise<{ weekId: string }> } 
 ) {
   const { weekId } = await context.params;
 

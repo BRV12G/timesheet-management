@@ -8,7 +8,6 @@ import { FaPlus } from "react-icons/fa6";
 import AddTaskModal from "@/components/AddTaskModal";
 import ClipLoader from "react-spinners/ClipLoader";
 
-
 interface Entry {
   task: string;
   hours: number;
@@ -20,14 +19,14 @@ interface Entry {
 // type Params = { params: { weekId: string } };
 
 export default function TimesheetWeekPage() {
-  const { weekId } = useParams();
-  //   const [entries, setEntries] = useState<any[]>([]);
-  const [entries, setEntries] = useState<Entry[]>([]);
+  const { weekId } = useParams(); // get weekid from dynamic route
+  const [entries, setEntries] = useState<Entry[]>([]); // stores all entries
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<string>("");
   const [days, setDays] = useState<string[]>([]);
   const [showModal, setShowModal] = useState(false);
-  
+
+  // Add new task entry  of the week
 
   const handleAddEntry = (newEntry: {
     task: string;
@@ -47,6 +46,7 @@ export default function TimesheetWeekPage() {
     ]);
   };
 
+  // Fetch the timesheet entries for the selected week
   useEffect(() => {
     const fetchEntries = async () => {
       const res = await fetch(`/api/timesheets/${weekId}`);
@@ -57,8 +57,8 @@ export default function TimesheetWeekPage() {
         setDays(json.days || []);
       }
       setTimeout(() => {
-  setLoading(false);
-}, 2000);
+        setLoading(false);
+      }, 2000);
     };
     fetchEntries();
   }, [weekId]);
@@ -67,20 +67,18 @@ export default function TimesheetWeekPage() {
   const maxHours = 40;
   const progressPercent = Math.min((totalHours / maxHours) * 100, 100);
 
-//   if (loading) return <p className="p-10">Loading...</p>;
-//   if (!entries.length) return <p className="p-10">No entries found.</p>;
-if (loading)
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="flex flex-col items-center justify-center p-8 bg-white rounded-xl shadow-lg">
-        <ClipLoader size={50} color="#2563eb" /> {/* Tailwind blue-600 */}
-        <p className="mt-4 text-gray-600 text-sm animate-pulse">
-          Fetching {range} timesheet...
-        </p>
+  //   if (!entries.length) return <p className="p-10">No entries found.</p>;
+  if (loading)
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="flex flex-col items-center justify-center p-8 bg-white rounded-xl shadow-lg">
+          <ClipLoader size={50} color="#2563eb" /> {/* Tailwind blue-600 */}
+          <p className="mt-4 text-gray-600 text-sm animate-pulse">
+            Fetching {range} timesheet...
+          </p>
+        </div>
       </div>
-    </div>
-  );
-
+    );
 
   return (
     <div className="bg-gray-50 ">
@@ -131,7 +129,10 @@ if (loading)
           <p className="text-sm text-gray-500 mb-4 font-normal">{range}</p>
 
           {days.map((day) => (
-            <div key={day} className="mb-8  flex flex-col sm:flex-row gap-4 items-start">
+            <div
+              key={day}
+              className="mb-8  flex flex-col sm:flex-row gap-4 items-start"
+            >
               <div className="min-w-[70px] pt-1">
                 <h3 className="font-semibold text-gray-900 text-lg mb-2">
                   {day}
