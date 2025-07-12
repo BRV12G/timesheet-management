@@ -19,9 +19,12 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  context: { params: { weekId: number } }
+    { params }: { params: { weekId: string } }
+
+//   context: { params: { weekId: string } }
+
 ) {
-  const { weekId } = context.params;
+  const { weekId } = params;
   const weekData = timesheetEntries[weekId];
 
   if (!weekData) {
