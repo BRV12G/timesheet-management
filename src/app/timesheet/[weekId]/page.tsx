@@ -1,6 +1,4 @@
 "use client";
-
-
 import TimesheetEntry from "@/components/TimesheetEntry";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -9,34 +7,42 @@ import Footer from "@/components/Footer";
 import { FaPlus } from "react-icons/fa6";
 import AddTaskModal from "@/components/AddTaskModal";
 
-
+interface Entry {
+  task: string;
+  hours: number;
+  project: string;
+  type: string;
+  date: string;
+  id: number;
+}
 type Params = { params: { weekId: string } };
 
-export default function TimesheetWeekPage({ params }: Params) {
+export default function TimesheetWeekPage({}: Params) {
   const { weekId } = useParams();
-  const [entries, setEntries] = useState<any[]>([]);
+  //   const [entries, setEntries] = useState<any[]>([]);
+  const [entries, setEntries] = useState<Entry[]>([]);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<string>("");
   const [days, setDays] = useState<string[]>([]);
   const [showModal, setShowModal] = useState(false);
 
   const handleAddEntry = (newEntry: {
-  task: string;
-  hours: number;
-  project: string;
-  type: string;
-}) => {
-  const today = days[0]; // default: assign to first day — or customize
+    task: string;
+    hours: number;
+    project: string;
+    type: string;
+  }) => {
+    const today = days[0];
 
-  setEntries((prev) => [
-    ...prev,
-    {
-      ...newEntry,
-      date: today,
-      id: Date.now(), // temp ID
-    },
-  ]);
-};
+    setEntries((prev) => [
+      ...prev,
+      {
+        ...newEntry,
+        date: today,
+        id: Date.now(), // temp ID
+      },
+    ]);
+  };
 
   useEffect(() => {
     const fetchEntries = async () => {
@@ -119,7 +125,6 @@ export default function TimesheetWeekPage({ params }: Params) {
                 </h3>
               </div>
               <div className="flex flex-col gap-2 ml-4 flex-1">
-                {/* <h3 className="font-medium text-gray-900 text-sm mb-2">{day}</h3> */}
                 {entries
                   .filter((e) => e.date === day)
                   .map((e) => (
@@ -131,8 +136,12 @@ export default function TimesheetWeekPage({ params }: Params) {
                       project={e.project}
                     />
                   ))}
-                <button onClick={() => setShowModal(true)} className="text-sm text-gray-500 hover:bg-blue-100 px-3 py-2 border border-dotted cursor-pointer hover:border-blue-700 border-gray-300 rounded-md hover:text-blue-700  text-center flex items-center justify-center gap-1  transition-colors">
-                  <FaPlus size={10} /> <span className="ml-1 ">Add new task</span>
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="text-sm text-gray-500 hover:bg-blue-100 px-3 py-2 border border-dotted cursor-pointer hover:border-blue-700 border-gray-300 rounded-md hover:text-blue-700  text-center flex items-center justify-center gap-1  transition-colors"
+                >
+                  <FaPlus size={10} />{" "}
+                  <span className="ml-1 ">Add new task</span>
                 </button>
               </div>
             </div>
@@ -140,8 +149,13 @@ export default function TimesheetWeekPage({ params }: Params) {
         </div>
         <Footer />
       </main>
-      
-      {showModal && <AddTaskModal onClose={() => setShowModal(false)} onAddEntry={handleAddEntry} />}
+
+      {showModal && (
+        <AddTaskModal
+          onClose={() => setShowModal(false)}
+          onAddEntry={handleAddEntry}
+        />
+      )}
     </div>
   );
 }
