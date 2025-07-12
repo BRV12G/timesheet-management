@@ -167,6 +167,17 @@ export const timesheets = [
 //   },
 // };
 
+type timesheetEntries = {
+  range: string;
+  days: string[];
+  entries: {
+    id: string;
+    date: string;
+    task: string;
+    hours: number;
+    project: string;
+  }[];
+};
 
 
 export const timesheetEntries = {
