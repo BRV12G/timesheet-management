@@ -65,6 +65,7 @@ Note: Password must conatain atleast 6 letters, 1 number, 1 caapital letter and 
 - Inter – Google Font
 - Git/Github - version control (Conventional commits used)
 - Vercel - deployment
+- React spinners
 
 ---
 
@@ -97,9 +98,10 @@ For educational and evaluation purposes only
 
 ## Tasks to be achived
 1. add a view password button
-2. add pop up showing succefully logged in
+2. add pop up showing succefully logged in and loading
 3. functionality for edit- delete button
 5. add data properly
 6. unit tests
 7. add a nice loader 
 8. if no entries in the timesheet than show atleast add buttons with dates.
+9. make reusable components

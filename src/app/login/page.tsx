@@ -3,6 +3,10 @@
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { IoMdEye } from "react-icons/io";
+import { IoMdEyeOff } from "react-icons/io";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -11,6 +15,9 @@ export default function LoginPage() {
     {}
   );
   const [loginError, setLoginError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // 👈 Add loading state
+ 
   const router = useRouter();
 
   const validateForm = () => {
@@ -40,11 +47,13 @@ export default function LoginPage() {
     setLoginError(""); // reset login error
 
     if (!validateForm()) return; // validate form
+    setIsLoading(true);
     const res = await signIn("credentials", {
       redirect: false,
       email,
       password,
     });
+    setIsLoading(false);
     if (res?.ok) router.push("/dashboard");
     else alert("Invalid credentials");
   };
@@ -75,12 +84,20 @@ export default function LoginPage() {
             <label className="text-md font-medium text-gray-900 leading-[21px]">
               Password
             </label>
-            <input
-              className="border border-gray-300 px-4 py-3 w-full  rounded-lg text-md  text-gray-500 "
-              placeholder="Password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+           <div className="relative">
+              <input
+                className="border border-gray-300 px-4 py-3 w-full rounded-lg text-md text-gray-500 pr-12"
+                placeholder="Password"
+                type={showPassword ? "text" : "password"} // 👈 Change type based on showPassword
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer text-gray-500 text-xl"
+                onClick={() => setShowPassword((prev) => !prev)} // 👈 Toggle logic
+              >
+                {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
+              </span>
+            </div>
             {errors.password && (
               <p className="text-red-500 text-sm">{errors.password}</p>
             )}
@@ -92,8 +109,12 @@ export default function LoginPage() {
             />
             <label className="text-gray-600">Remember me</label>
           </div>
-          <button className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm cursor-pointer">
-            Sign in
+          <button className="bg-blue-600 text-white px-5 py-3.5 w-full rounded-lg font-medium text-sm cursor-pointer " disabled={isLoading}>
+            {isLoading ? (
+    <ClipLoader size={20} color="#ffffff" /> 
+  ) : (
+    "Sign in"
+  )}
           </button>
           {loginError && (
             <p className="text-red-500 text-sm text-center">{loginError}</p>
