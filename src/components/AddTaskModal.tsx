@@ -25,7 +25,7 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
 
       {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center shadow-sm">
-        <div className="bg-white rounded-md w-full max-w-xl shadow-lg  relative">
+        <div className="bg-white rounded-md w-[95%]  max-w-xl shadow-lg  relative">
           {/* Close Button */}
           <div className="border-b border-gray-200 px-5 py-5 items-center">
             <button
@@ -171,7 +171,7 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
               </div>
 
               {/* Footer Buttons */}
-              <div className="flex justify-between items-center  pt-4 mt-4 gap-2">
+              <div className="flex flex-col sm:flex-row justify-between items-center pt-4 mt-4 gap-2">
                 <button
                   type="submit"
                   className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm hover:bg-blue-700 w-1/2 cursor-pointer"

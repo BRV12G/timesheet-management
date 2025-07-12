@@ -68,7 +68,7 @@ export default function TimesheetWeekPage() {
   return (
     <div className="bg-gray-50 ">
       <Header />
-      <main className="pt-5 px-40 pb-60 ">
+      <main className="pt-5 px-4 sm:px-6 md:px-10 xl:px-40 pb-20">
         <div className="bg-white p-6 rounded-lg shadow-md">
           {/* <div className="flex justify-between items-center mb-2">
             <h2 className="text-2xl font-bold">This week&#39;s timesheet</h2>
@@ -114,7 +114,7 @@ export default function TimesheetWeekPage() {
           <p className="text-sm text-gray-500 mb-4 font-normal">{range}</p>
 
           {days.map((day) => (
-            <div key={day} className="mb-8  flex flex-row gap-4 items-start">
+            <div key={day} className="mb-8  flex flex-col sm:flex-row gap-4 items-start">
               <div className="min-w-[70px] pt-1">
                 <h3 className="font-semibold text-gray-900 text-lg mb-2">
                   {day}
