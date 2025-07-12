@@ -50,19 +50,17 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col lg:flex-row min-h-screen">
       {/* Left Section - Login Form */}
-      <div className="w-1/2 flex flex-col justify-center items-start px-24">
+      <div className="w-full lg:w-1/2 flex flex-col justify-center items-start px-6 sm:px-12 md:px-20 lg:px-24 py-12">
         <h2 className="text-2xl font-bold leading-tight mb-6  text-gray-900">
           Welcome back
-        </h2>{" "}
-        {/* mb-6 for spacing match */}
+        </h2>
         <form onSubmit={handleLogin} className="w-full space-y-4">
           <div className="flex flex-col gap-2">
             <label className="text-md font-medium text-gray-900 leading-[21px] ">
               Email
             </label>{" "}
-            {/* Added label */}
             <input
               className="border border-gray-300 px-4 py-3 w-full  rounded-lg text-md text-gray-600 "
               placeholder="name@example.com"
@@ -76,8 +74,7 @@ export default function LoginPage() {
           <div className="flex flex-col gap-2">
             <label className="text-md font-medium text-gray-900 leading-[21px]">
               Password
-            </label>{" "}
-            {/* Added label */}
+            </label>
             <input
               className="border border-gray-300 px-4 py-3 w-full  rounded-lg text-md  text-gray-500 "
               placeholder="Password"
@@ -105,12 +102,12 @@ export default function LoginPage() {
       </div>
 
       {/* Right Section - Intro Text */}
-      <div className="w-1/2 bg-blue-600 text-white flex items-center px-30">
+      <div className="lg:w-1/2 w-full bg-blue-600 text-white flex items-center  px-6 sm:px-12 lg:px-30 py-12">
         <div className="flex flex-col gap-4">
           <h1 className="text-5xl font-semibold mb-4 leading-[60px]">
             ticktock
           </h1>
-          <p className="text-lg  text-gray-200 text-justify  ">
+          <p className="text-base sm:text-lg  text-gray-200 text-justify  ">
             Introducing ticktock, our cutting-edge timesheet web application
             designed to revolutionize how you manage employee work hours. With
             ticktock, you can effortlessly track and monitor employee attendance
