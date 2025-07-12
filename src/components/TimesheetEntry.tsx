@@ -2,7 +2,6 @@ import { SlOptions } from "react-icons/sl";
 import { useState, useRef, useEffect } from "react";
 
 type Props = {
-  // day: string;
   task: string;
   hours: number;
   project: string;
@@ -29,7 +28,6 @@ export default function TimesheetEntry({ task, hours, project }: Props) {
   }, []);
   return (
     <div className="flex items-center justify-between px-3 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 w-full">
-      {/* <span className="text-sm text-gray-500">{day}</span> */}
       <div className="flex flex-row gap-0.5">
         <p className="text-base font-medium text-gray-900">{task}</p>
       </div>

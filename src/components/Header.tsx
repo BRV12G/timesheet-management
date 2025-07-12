@@ -11,26 +11,6 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const name = session?.user?.email?.split("@")[0];
-
-  //      const handleLogout = () => {
-  //     confirmAlert({
-  //       title: "Confirm Logout",
-  //       message: "Are you sure you want to logout?",
-  //       buttons: [
-  //         {
-  //           label: "Yes",
-  //           onClick: () => signOut({ callbackUrl: "/login" }),
-  //         },
-  //         {
-  //           label: "No",
-  //           onClick: () => {},
-  //         },
-  //       ],
-  //       closeOnEscape: true,
-  //       closeOnClickOutside: true,
-  //     });
-  //   };
-
   const handleLogout = () => {
     confirmAlert({
       customUI: ({ onClose }) => {
@@ -67,7 +47,7 @@ export default function Header() {
 
   return (
     <header className="w-full h-[68px] flex items-center justify-between px-4  bg-white shadow-lg">
-      {/* Left side: Logo + ticktock + Timesheets */}
+      {/* Left side */}
       <div className="flex items-center gap-12">
         <Link
           href="/dashboard"
@@ -80,7 +60,7 @@ export default function Header() {
         </span>
       </div>
 
-      {/* Right side: Username + Dropdown */}
+      {/* Right side: Username and Dropdown */}
       <div className="relative">
         <button
           onClick={() => setOpen((prev) => !prev)}

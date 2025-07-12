@@ -18,7 +18,6 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-white/10 backdrop-blur-xs z-40"
         onClick={onClose}
@@ -50,7 +49,6 @@ export default function AddTaskModal({ onClose, onAddEntry }: Props) {
                 const type = (form.type as HTMLSelectElement).value;
                 const task = (form.task as HTMLTextAreaElement).value;
 
-                // if (!project || !type || !task) return;
                
                 const newErrors: typeof errors = {};
                 if (!project) newErrors.project = "Please select a project";

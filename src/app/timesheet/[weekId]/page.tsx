@@ -85,7 +85,7 @@ export default function TimesheetWeekPage() {
           </div> */}
 
           <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
-            {/* Left side: heading + date */}
+            {/* Left side: heading */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900">
                 This week&#39;s timesheet
@@ -98,9 +98,6 @@ export default function TimesheetWeekPage() {
                 {totalHours}/{maxHours} hrs
               </span>
               <div className="relative  flex flex-col justify-between  mb-1 text-sm text-gray-600 font-medium text-right">
-                {/* <span className="text-orange-500 ">
-                  {totalHours}/{maxHours} hrs
-                </span> */}
                 <span className="text-gray-400   " id="3">
                   {Math.round(progressPercent)}%
                 </span>
@@ -116,7 +113,6 @@ export default function TimesheetWeekPage() {
 
           <p className="text-sm text-gray-500 mb-4 font-normal">{range}</p>
 
-          {/* Daily entries */}
           {days.map((day) => (
             <div key={day} className="mb-8  flex flex-row gap-4 items-start">
               <div className="min-w-[70px] pt-1">
@@ -130,7 +126,6 @@ export default function TimesheetWeekPage() {
                   .map((e) => (
                     <TimesheetEntry
                       key={e.id}
-                      //   day={day}
                       task={e.task}
                       hours={e.hours}
                       project={e.project}
