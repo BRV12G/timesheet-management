@@ -9,7 +9,7 @@ export const users = [
   },
   {
     id: "2",
-    email: "bhairavi@example.com ",
+    email: "bhairavi@example.com",
     password: "Hello@123g", // dummy password
     name: "Bhairavi Gawas",
    
