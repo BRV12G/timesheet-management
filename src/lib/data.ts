@@ -167,7 +167,7 @@ export const timesheets = [
 //   },
 // };
 
-type timesheetEntries = {
+type TimesheetEntry = {
   range: string;
   days: string[];
   entries: {
@@ -180,7 +180,7 @@ type timesheetEntries = {
 };
 
 
-export const timesheetEntries = {
+export const timesheetEntries: Record<string, TimesheetEntry> = {
   "1": {
     range: "01 - 07 January, 2024",
     days: ["Jan 01", "Jan 02", "Jan 03", "Jan 04", "Jan 05"],

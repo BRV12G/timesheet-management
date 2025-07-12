@@ -1,36 +1,36 @@
-// // app/api/timesheets/[weekId]/route.ts
-// import { timesheetEntries } from "@/lib/data";
-// import { NextResponse } from "next/server";
-
-// export async function GET(
-//   request: Request,
-//   { params }: { params: { weekId: string } }
-// ) {
-//   const weekData = timesheetEntries[params.weekId];
-//   if (!weekData) {
-//     return new NextResponse("Timesheet not found", { status: 404 });
-//   }
-
-//   return NextResponse.json(weekData); // contains `range` and `entries`
-// }
-
+// app/api/timesheets/[weekId]/route.ts
 import { timesheetEntries } from "@/lib/data";
 import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-    { params }: { params: { weekId: string } }
-
-//   context: { params: { weekId: string } }
-
+  { params }: { params: { weekId: string } }
 ) {
-  const { weekId } = params;
-  const weekData = timesheetEntries[weekId];
-
+  const weekData = timesheetEntries[params.weekId];
   if (!weekData) {
     return new NextResponse("Timesheet not found", { status: 404 });
   }
 
   return NextResponse.json(weekData); // contains `range` and `entries`
 }
+
+// import { timesheetEntries } from "@/lib/data";
+// import { NextResponse } from "next/server";
+
+// export async function GET(
+//   request: Request,
+
+//   context: { params: { weekId: string } }
+
+// ) {
+//     const weekId = String(context.params.weekId); 
+//        const weekData = timesheetEntries[weekId];
+
+
+//   if (!weekData) {
+//     return new NextResponse("Timesheet not found", { status: 404 });
+//   }
+
+//   return NextResponse.json(weekData); 
+// }
 
