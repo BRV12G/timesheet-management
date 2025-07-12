@@ -1,7 +1,8 @@
 #  TickTock – Timesheet Management App
 
 A small SaaS-style timesheet web app built using **Next.js 15**, **NextAuth**, and **Tailwind CSS**, with mock APIs and modular components.
-
+ 
+ **Live Demo**: [https://timesheet-management-xi.vercel.app](https://timesheet-management-xi.vercel.app)
 ---
 
 ##  Features
@@ -61,6 +62,8 @@ Note: Password must conatain atleast 6 letters, 1 number, 1 caapital letter and 
 - Tailwind CSS 
 - React Icons
 - Inter – Google Font
+- Git/Github - version control (Conventional commits used)
+- Vercel - deployment
 
 ---
 
@@ -123,7 +126,7 @@ timesheet-management/
 - **30–45 minutes**: Form validation and code formatting  
 - **15–20 minutes**: Deployment on Vercel  
 - **20–30 minutes**: README documentation and polishing  
-- **🕒 Total Time Spent**: ~9 to 12 hours
+- ** Total Time Spent**: ~9 to 12 hours
 
 ---
 
