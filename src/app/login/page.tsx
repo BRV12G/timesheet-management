@@ -6,6 +6,8 @@ import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import ClipLoader from "react-spinners/ClipLoader";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function LoginPage() {
@@ -54,8 +56,12 @@ export default function LoginPage() {
       password,
     });
     setIsLoading(false);
-    if (res?.ok) router.push("/dashboard");
-    else alert("Invalid credentials");
+    if (res?.ok) {
+        toast.success("Successfully signed in!");
+
+        router.push("/dashboard");
+    }
+    else toast.error("Invalid email or password.");
   };
 
   return (
@@ -137,6 +143,16 @@ export default function LoginPage() {
           </p>
         </div>
       </div>
+      <ToastContainer
+      position="top-center"
+      autoClose={20000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      pauseOnHover
+      draggable
+      theme="colored"
+    />
     </div>
   );
 }

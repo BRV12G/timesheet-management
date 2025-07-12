@@ -66,6 +66,7 @@ Note: Password must conatain atleast 6 letters, 1 number, 1 caapital letter and 
 - Git/Github - version control (Conventional commits used)
 - Vercel - deployment
 - React spinners
+- react toastify
 
 ---
 
