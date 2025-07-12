@@ -1,62 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  TickTock – Timesheet Management App
 
-## Getting Started
+A small SaaS-style timesheet web app built using **Next.js 15**, **NextAuth**, and **Tailwind CSS**, with mock APIs and modular components.
+ 
+ **Live Demo**: [Click here](https://timesheet-management-xi.vercel.app)
+---
 
-First, run the development server:
+##  Features
 
+- Login using **NextAuth Credentials Provider**
+- Dashboard showing weekly timesheets
+- View/add tasks for each week
+- Internal API routes (no direct mock data access)
+- Fully responsive UI
+- Reusable and scalable component structure Header Footer
+-Form validation and error handling for the creation form
+
+
+---
+
+##  Setup Instructions
+
+### 1. Clone the project
+
+```bash
+git clone https://github.com/your-username/ticktock-timesheet.git  
+cd ticktock-timesheet
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Start the development server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##  Mock Login Credentials
 
-## Learn More
+Use the following hardcoded credentials:
 
-To learn more about Next.js, take a look at the following resources:
+Email: bhairavi@example.com  
+Password: Hello@123g
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Note: Password must conatain atleast 6 letters, 1 number, 1 caapital letter and 1 special symbol.
 
 
 
-## Authentication Setup
+---
 
-To add authentication to your project, install [NextAuth.js](https://next-auth.js.org/):
+##  Tech Stack
 
-```bash
-npm install next-auth
-```
+- Next.js 15 (App Router)
+- TypeScript
+- NextAuth.js – Auth and session management
+- Tailwind CSS 
+- React Icons
+- Inter – Google Font
+- Git/Github - version control (Conventional commits used)
+- Vercel - deployment
 
-If you are using TypeScript, also install the type definitions:
+---
 
-```bash
-npm install --save-dev @types/next-auth
-```
-npm install next-auth
->>
->> npm install --save-dev @types/next-auth
+##  Assumptions & Notes
 
-npm install react-icons
+- Dummy login is used via NextAuth credentials provider
+- All timesheet and user data is mock and stored in `lib/data.ts`
+- API routes serve mock data – components do not access mock data directly
 
-npm install react-confirm-alert
+---
 
-npm install @headlessui/react
+##  Time Spent
 
+- **1.5–2 hours**: API setup, mock data, and basic (non-Figma-matched) styling  
+- **4–6 hours**: Styling and pixel-perfect UI matching with Figma  
+- **1–2 hours**: Add/Edit modal implementation for timesheet entries  
+- **30–45 minutes**: Making the layout responsive  
+- **30–45 minutes**: Form validation and code formatting  
+- **15–20 minutes**: Deployment on Vercel  
+- **20–30 minutes**: README documentation and polishing  
+- **Total Time Spent**: ~9 to 12 hours
+
+---
+
+##  Author
+
+Bhairavi Gawas  
+For educational and evaluation purposes only
