@@ -2,7 +2,7 @@
 
 A small SaaS-style timesheet web app built using **Next.js 15**, **NextAuth**, and **Tailwind CSS**, with mock APIs and modular components.
  
- **Live Demo**: [https://timesheet-management-xi.vercel.app](https://timesheet-management-xi.vercel.app)
+ **Live Demo**: [Click here](https://timesheet-management-xi.vercel.app)
 ---
 
 ##  Features
